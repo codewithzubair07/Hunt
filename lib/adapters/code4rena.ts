@@ -19,7 +19,7 @@ export async function fetchCode4rena(): Promise<Bounty[]> {
       const cols = lines[i].split(',')
       const start = cols[1]
       const end = cols[2]
-      if (start <= today && today <= end) {
+      if (new Date(start) <= new Date(today) && new Date(today) <= new Date(end)) {
         bounties.push({
           id: `code4rena:${cols[0]}`,
           title: cols[3] || 'Code4rena Contest',
